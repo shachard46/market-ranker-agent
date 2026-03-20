@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "profiles": {
+    "google:default": {
+      "type": "api_key",
+      "provider": "google",
+      "key": "AIzaSyCXmsac5ByuCBPqb9ZJhISAvls-BzOU2vg"
+    },
+    "openrouter:default": {
+      "type": "api_key",
+      "provider": "openrouter",
+      "key": "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"
+    }
+  },
+  "lastGood": {
+    "google": "google:default",
+    "openrouter": "openrouter:default"
+  },
+  "usageStats": {
+    "google:default": {
+      "lastUsed": 1772486107574,
+      "errorCount": 0
+    },
+    "openrouter:default": {
+      "lastUsed": 1774020058947,
+      "errorCount": 0
+    }
+  }
+}
