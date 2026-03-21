@@ -4,8 +4,8 @@
 
 ### 1. `market-ranker`
 
-- **Description:** Local Python script (`rank_markets.py`) returning top markets mathematically scored for actionable trading opportunities.
-- **Usage:** Run to fetch the initial data set of anomalies.
+- **Description:** Local Python script (`/home/.openclaw/skills/market-ranker/rank_markets.py`) returning top markets mathematically scored for actionable trading opportunities.
+- **Usage:** Run to fetch the initial data set of anomalies, and use the .venv in `/home/.openclaw/skills/market-ranker` to run the script with the correct dependencies.
 
 ### 2. `polymarket_tools` (market-scraper)
 

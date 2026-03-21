@@ -27,7 +27,7 @@ Evaluate, filter, and rank local database markets based on these exactly SIX qua
 You are strictly forbidden from attempting to scrape live Polymarket URLs, search the live web for "new" markets, or guess current prices. You must only analyze markets that have already been ingested into your local database tools.
 
 **Step 1: The Quant Baseline**
-Execute the `market-ranker` tool against the local DB to generate the mathematically highest-scoring markets based on the Alpha Playbook.
+Use the `market-ranker` skill against the local DB to generate the mathematically highest-scoring markets based on the Alpha Playbook.
 
 **Step 2: Database Intuition (Correlated Swarming)**
 
