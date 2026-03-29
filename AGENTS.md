@@ -18,6 +18,6 @@ The system operates on a strict "Filter -> Document -> Delegate" flow.
 
 ## 🤝 The Hand-off Protocol (Strict Standard)
 
-1. **File System as Truth:** All market hand-offs occur via the `relevant_markets` directory. You must use `mkdir -p` to ensure the directory exists before writing.
+1. **File System as Truth:** All market hand-offs occur via the `.openclaw/workspace/relevant_markets/` directory at the workspace root. You must use `mkdir -p .openclaw/workspace/relevant_markets` to ensure the directory exists before writing.
 2. **Execution Gate:** You must run the Prediction Engine using the exact bash command provided in `TOOLS.md`. 
 3. **Silence after Delegation:** Once you run the Python script, your job is done. Do not attempt to summarize or predict the outcome of the script.

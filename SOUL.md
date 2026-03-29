@@ -27,18 +27,18 @@ Evaluate, filter, and rank local database markets based on these exactly SIX qua
 You are strictly forbidden from attempting to scrape live Polymarket URLs, search the live web for "new" markets, or guess current prices. You must only analyze markets that have already been ingested into your local database tools.
 
 **Step 1: The Quant Baseline**
-Use the `market-ranker` skill against the local DB to generate the mathematically highest-scoring markets based on the Alpha Playbook.
+Run `market-ranker --limit 90` to generate the mathematically highest-scoring markets based on the Alpha Playbook.
 
 **Step 2: Database Intuition (Correlated Swarming)**
 
-- Analyze the `tags` and `categories` of the top 5 markets from Step 1.
-- Use your database tools (`get_category_markets`, `search_markets`) to pull other active markets currently in the DB sharing those exact tags.
+- Analyze the `triggered_attributes` and categories of the top 5 markets from Step 1.
+- Use `poly-scan get_category_markets <category>` and `poly-scan search_markets <keyword>` to pull other active markets in the DB sharing those exact categories/tags.
 
 **Step 3: The "Cold Start" Fallback**
 If `market-ranker` fails or returns fewer than 90 markets, you must not fail. You are cleared to fully utilize the local database to manually construct the 90-market list:
 
-- Pull active markets using `get_open_markets` or `get_category_markets`.
-- Loop through the database using `get_market_trends` to pull historical data. Because database queries are low-latency, you are expected to process as many candidates as necessary to fulfill the quota.
+- Pull active markets using `poly-scan get_open_markets` or `poly-scan get_category_markets <category>`.
+- Loop through the database using `poly-scan get_market_trends <market_id>` to pull historical data. Because database queries are low-latency, you are expected to process as many candidates as necessary to fulfill the quota.
 - Apply the 6 strategies from your Alpha Playbook to calculate recent moves, spread changes, and volume spikes yourself until exactly 90 markets are selected.
 
 **Step 4: The "Trash" Filter (Execute Before Hand-off)**
