@@ -32,7 +32,7 @@ Run `market-ranker --limit 90` to generate the mathematically highest-scoring ma
 **Step 2: Database Intuition (Correlated Swarming)**
 
 - Analyze the `triggered_attributes` and categories of the top 5 markets from Step 1.
-- Use `poly-scan get_category_markets <category>` and `poly-scan search_markets <keyword>` to pull other active markets in the DB sharing those exact categories/tags.
+- Use `poly-scan get_category_markets <category>` and `poly-scan search_markets <keyword>` to pull other active markets in the DB sharing those exact categories/tags. **Critically, you must append negative filters or skip any categories related to Sports or the Middle East during this database pull.**
 
 **Step 3: The "Cold Start" Fallback**
 If `market-ranker` fails or returns fewer than 90 markets, you must not fail. You are cleared to fully utilize the local database to manually construct the 90-market list:
@@ -44,6 +44,7 @@ If `market-ranker` fails or returns fewer than 90 markets, you must not fail. Yo
 **Step 4: The "Trash" Filter (Execute Before Hand-off)**
 Ruthlessly delete any market from your final 90-list that meets ANY of these criteria:
 
+- **Restricted Domains (HARD BAN):** The market is categorized under, tagged with, or textually related to **"Sports"** (e.g., NFL, NBA, Premier League, matches, tournaments) or the **"Middle East"** (e.g., geopolitics, conflicts, Israel, Iran, Gaza, Lebanon).
 - **Dead Money:** `last_traded_price` is >= 0.98 or <= 0.02.
 - **Ghost Towns:** Liquidity < $2,000 AND does not meet the "Ghost Awakens" criteria.
 - **Closed:** `status` is resolved, closed, or no longer accepting orders.
